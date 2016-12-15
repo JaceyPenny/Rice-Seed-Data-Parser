@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiceSeedParser", "RiceSeedParser\RiceSeedParser.csproj", "{F702C05D-4F35-4681-AE50-6DA972232EBB}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Rice Advisor Setup", "Rice Advisor Setup\Rice Advisor Setup.vdproj", "{4ED8A9C9-7153-4DFA-9E3C-103B0103D5CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F702C05D-4F35-4681-AE50-6DA972232EBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F702C05D-4F35-4681-AE50-6DA972232EBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F702C05D-4F35-4681-AE50-6DA972232EBB}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{F702C05D-4F35-4681-AE50-6DA972232EBB}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{4ED8A9C9-7153-4DFA-9E3C-103B0103D5CB}.Debug|Any CPU.ActiveCfg = Debug
+		{4ED8A9C9-7153-4DFA-9E3C-103B0103D5CB}.Release|Any CPU.ActiveCfg = Release
+		{4ED8A9C9-7153-4DFA-9E3C-103B0103D5CB}.Release|Any CPU.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

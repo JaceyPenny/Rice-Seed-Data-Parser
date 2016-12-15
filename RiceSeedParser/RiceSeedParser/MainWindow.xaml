@@ -1,0 +1,62 @@
+<Window x:Class="RiceSeedParser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Rice Seed Updater" MinHeight="300" MinWidth="420" Height="372" Width="638" WindowState="Maximized" Icon="Resources/app_icon.ico">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!-- File menu, provides 4 functions. Visible universally -->
+        <DockPanel x:Name="dockPanel" Opacity="0" Visibility="Hidden">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_Help" Click="MenuItem_Click_2"/>
+                    <MenuItem Header="_Start Over" Click="MenuItem_Click"/>
+                    <MenuItem Header="_View Existing Data..." Click="MenuItem_Click_3"/>
+                    <MenuItem Header="_Close" Click="MenuItem_Click_1"/>
+                </MenuItem>
+            </Menu>
+            <StackPanel></StackPanel>
+        </DockPanel>
+
+        <!-- The logo that is displayed initially. Everything else should be "Hidden" at this point -->
+        <Image x:Name="logoImage" Height="300" Margin="0,0,0,0" Width="400" Source="Resources\main_logo.png"/>
+
+        <!-- Initial "Select PDF Layout". Allows choosing a PDF by URL or on the file system -->
+        <Label x:Name="lblUrl" Content="Enter the Riceseed PDF URL:" Margin="0,-84,0,0" Width="400" Height="24" Opacity="0"/>
+        <TextBox x:Name="txtURL" Margin="0,-34,0,0" Width="400" Height="24" Opacity="0"/>
+        <Button x:Name="btnOpen" Content="Choose PDF File..." Margin="-204,34,0,0" Width="196" Height="32" Click="btnOpen_Click" Opacity="0"/>
+        <Button x:Name="btnURL" Click="btnURL_Click" Content="Confirm URL" Foreground="White" Background="Green" Margin="204,34,0,0" Width="196" Height="32" Opacity="0"/>
+
+        <!-- The data selection layout. Provides the user with a list of the lines of text extracted from the PDF and present a confirm button upon clicking one of the entries -->
+        <Label x:Name="listLabel" Content="Loading data from PDF..."  Visibility="Hidden" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,24,0,0"/>
+        <ListBox x:Name="listSelectRows" Margin="0,53,0,-0.5" Visibility="Hidden"/>
+        <Button x:Name="confirmButton" Visibility="Hidden" Content="Confirm" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10,24,10,0" Height="24" Width="100" />
+        
+        <!-- The final layout where the user can easily view and confirm what data has been parsed for Cultivars -->
+        <DataGrid x:Name="dataControl"  LoadingRow="dataControl_LoadingRow" AlternatingRowBackground="LightBlue" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding Cultivars}" Margin="0,18,0,45.5" Visibility="Hidden">
+            <DataGrid.Columns>
+                <!-- The various columns to display all of the data in a Cultivar in a userfriendly format -->
+                <DataGridTextColumn Header="Name" Width="SizeToCells" IsReadOnly="True" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Seed Weight" IsReadOnly="True" Binding="{Binding SeedWeight}"/>
+                <DataGridTextColumn Header="Seeds per Pound" IsReadOnly="True" Binding="{Binding SeedsPerPound}"/>
+                <DataGridTextColumn Header="Min Seeds / Sq Foot" IsReadOnly="True" Binding="{Binding MinPerFoot}"/>
+                <DataGridTextColumn Header="Opt Seeds / Sq Foot" IsReadOnly="True" Binding="{Binding OptPerFoot}"/>
+                <DataGridTextColumn Header="Max Seeds / Sq Foot" IsReadOnly="True" Binding="{Binding MaxPerFoot}"/>
+                <DataGridTextColumn Header="Min Lbs/Acre" IsReadOnly="True" Binding="{Binding MinPoundsPerAcre}"/>
+                <DataGridTextColumn Header="Opt Lbs/Acre" IsReadOnly="True" Binding="{Binding OptPoundsPerAcre}"/>
+                <DataGridTextColumn Header="Max Lbs/Acre" IsReadOnly="True" Binding="{Binding MaxPoundsPerAcre}"/>
+                <DataGridTextColumn Header="Min Bushels/Acre" IsReadOnly="True" Binding="{Binding MinBushelsPerAcre}"/>
+                <DataGridTextColumn Header="Opt Bushels/Acre" IsReadOnly="True" Binding="{Binding OptBushelsPerAcre}"/>
+                <DataGridTextColumn Header="Max Bushels/Acre" IsReadOnly="True" Binding="{Binding MaxBushelsPerAcre}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnSave" Content="Save All Data" Margin="0,0,0,0" Height="45" VerticalAlignment="Bottom" Background="Red" Foreground="White" BorderBrush="Red" Click="btnSave_Click" Visibility="Hidden"/>
+        
+    </Grid>
+</Window>
